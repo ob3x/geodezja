@@ -1,0 +1,361 @@
+@use 'colors' as *;
+@use 'mixins' as *;
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+html {
+	font-size: 62.5%;
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+}
+
+.wrapper {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 1400px;
+}
+li {
+	list-style-type: none;
+}
+a {
+	text-decoration: none;
+}
+
+.nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: 10;
+	&-box {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding: 1em 0.5em;
+		&__logo {
+			background-image: url(../../dist/img/LOGO2022__1_-removebg-preview.png);
+			background-size: 80%;
+			background-repeat: no-repeat;
+			width: 5em;
+			height: 5em;
+			cursor: pointer;
+		}
+	}
+	&-list {
+		display: flex;
+		align-items: center;
+		font-size: 1.3rem;
+		&__item {
+			margin: 0 0.5em;
+			font-weight: 700;
+			text-transform: uppercase;
+			&-link {
+				position: relative;
+				color: $main;
+				&::after {
+					position: absolute;
+					bottom: 0;
+					left: -0.1em;
+					height: 0.1em;
+					width: 0;
+					background-color: $main;
+					content: '';
+					transition: width 0.3s;
+				}
+				&::before {
+					position: absolute;
+					bottom: 0;
+					left: -0.2em;
+					height: 0%;
+					width: 0.1em;
+					background-color: $main;
+					content: '';
+					transition: height 0.3s;
+				}
+				&:hover::after {
+					width: 50%;
+				}
+				&:hover::before {
+					height: 100%;
+				}
+			}
+		}
+	}
+	&-button {
+		padding: 0.5em;
+		border-radius: 1.5em;
+		background-color: $main;
+		color: $white;
+		font-size: 1.2rem;
+		border: 0.2em solid $main;
+		cursor: pointer;
+		transition: color 0.3s, background-color 0.3s;
+		&:hover {
+			background-color: $grey;
+			color: $main;
+		}
+	}
+}
+
+.header {
+	position: relative;
+	background-image: url(../../dist/img/measurement-gf05a30be9_1920.jpg);
+	height: 100vh;
+	background-size: cover;
+	z-index: 1;
+	&-shadow {
+		@include shadow;
+	}
+	&-box {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		height: 100%;
+		&__title {
+			font-size: 2rem;
+			font-weight: 900;
+			color: $main;
+		}
+		&__text {
+			margin: 0.5em 0 1.5em;
+			font-size: 1.3rem;
+            width: 70%;
+			color: $white;
+		}
+		&__button {
+			padding: 0.5em 2em;
+			font-size: 1.8rem;
+			font-weight: bold;
+			background-color: $main;
+			letter-spacing: 0.1em;
+			color: $white;
+			text-transform: uppercase;
+			border-radius: 1.5em;
+			transition: color 0.3s, background-color 0.3s;
+			&:hover {
+				background-color: $grey;
+				color: $main;
+			}
+		}
+	}
+}
+
+.offert {
+	scroll-margin-top: 10em;
+	margin-bottom: 10em;
+	&-title {
+		padding: 3em 0;
+		text-align: center;
+		font-size: 4rem;
+		font-weight: 900;
+		text-transform: uppercase;
+		letter-spacing: 0.1em;
+		color: $grey;
+		&__secound {
+			padding: 3em 0 0.5em;
+		}
+	}
+	&-box {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		&__item {
+			margin: 2em;
+			padding: 5em 3em;
+			text-align: center;
+			border-radius: 1em;
+			background-color: $grey;
+			color: $white;
+            transition: background-color .3s;
+            cursor: pointer;
+            &:hover {
+                background-color: #1b1b1bf6;
+            }
+			&--title {
+				font-size: 1.6rem;
+			}
+			&--text {
+				margin-top: 1em;
+				font-weight: 600;
+				font-size: 1.3rem;
+			}
+		}
+	}
+}
+
+.galery {
+	display: flex;
+	justify-content: space-between;
+	&-item {
+		background-image: url(../../dist/img/1.png);
+		background-size: 100%;
+		background-repeat: no-repeat;
+		width: 50%;
+		height: 15em;
+		&:nth-child(2) {
+			background-image: url(../../dist/img/2.png);
+		}
+		&:nth-child(3) {
+			background-image: url(../../dist/img/3.png);
+            display: none;
+		}
+	}
+}
+
+.map {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	&-item {
+		width: 100%;
+	}
+}
+
+.contact {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	margin-top: 4em;
+    &-container__footer {
+        margin-bottom: 3em;
+    }
+	&-title {
+		text-align: center;
+		font-size: 2rem;
+		font-weight: 600;
+	}
+	&-box {
+		display: flex;
+		align-items: center;
+		font-size: 1.8rem;
+		margin: 0.3em 0;
+		&__icon {
+			margin-right: 0.5em;
+		}
+	}
+	&-text {
+		font-weight: bold;
+		&__secound {
+			color: $main;
+		}
+	}
+}
+
+.footer {
+	background-color: $grey;
+	padding-top: 2em;
+	&-box {
+		display: flex;
+		align-items: center;
+        flex-direction: column;
+	}
+	&-logo {
+		background-image: url(../../dist/img/LOGO2022__1_-removebg-preview.png);
+		background-repeat: no-repeat;
+		background-size: 100%;
+		height: 28em;
+		width: 20em;
+	}
+	&-bottom {
+		padding: 1.5em;
+		background-color: $main;
+		&__text {
+			color: $grey;
+			text-align: center;
+			font-size: 1.7rem;
+			font-weight: bold;
+		}
+	}
+}
+@media (min-width: 400px) {
+    .galery-item {
+        height: 10em;
+		width: 33.333%;
+        &:nth-child(3) {
+            display: block;
+        }
+    }
+}
+@media (min-width: 576px) {
+	.nav-box__logo {
+		width: 8em;
+		height: 8em;
+	}
+	.nav-list {
+		font-size: 1.7rem;
+		&__item {
+			margin: 0 1em;
+		}
+		&-button {
+			padding: 0.5em 1.5em;
+			font-size: 1.4rem;
+		}
+	}
+	.header-box {
+		&__title {
+			font-size: 3rem;
+		}
+		&__text {
+			font-size: 1.7rem;
+		}
+        &__button {
+            font-size: 2.5rem;
+        }
+	}
+    .footer {
+        &-box {
+            flex-direction: row;
+            justify-content: space-between;
+        }
+    }
+}
+@media (min-width: 600px) {
+    .galery-item {
+        height: 15em;
+    }
+}
+@media (min-width: 768px) {
+	.nav-list {
+		font-size: 2rem;
+	}
+	.header-box {
+		&__title {
+			font-size: 4rem;
+		}
+		&__text {
+			font-size: 2rem;
+		}
+	}
+}
+@media (min-width: 800px) {
+    .galery-item {
+        height: 20em;
+    }
+    .map-item {
+        width: 50%;
+    }
+}
+@media (min-width: 1000px) {
+    .galery-item {
+        height: 25em;
+    }
+}
+@media (min-width: 1200px) {
+    .galery-item {
+        height: 30em;
+    }
+}
+@media (min-width: 1400px) {
+    .galery-item {
+        height: 35em;
+    }
+}
